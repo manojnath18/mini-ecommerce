@@ -66,7 +66,7 @@ export default function SignInPage() {
         </form>
 
         <div className="text-center text-sm text-gray-500 pt-6 border-t border-gray-200">
-          Don't have an account?{' '}
+          Dont have an account?{' '}
           <Link href="/signup" className="font-semibold text-blue-600 hover:underline">
             Sign Up
           </Link>

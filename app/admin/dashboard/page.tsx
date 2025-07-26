@@ -11,11 +11,17 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
+type Order = {
+  total: number;
+  id: string;
+  createdAt?: string;
+};
+
 const AdminDashboard = () => {
   const router = useRouter();
-  const [productsCount, setProductsCount] = useState(0);
-  const [ordersCount, setOrdersCount] = useState(0);
-  const [totalRevenue, setTotalRevenue] = useState(0);
+  const [productsCount, setProductsCount] = useState<number>(0);
+  const [ordersCount, setOrdersCount] = useState<number>(0);
+  const [totalRevenue, setTotalRevenue] = useState<number>(0);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('adminLoggedIn');
@@ -33,15 +39,11 @@ const AdminDashboard = () => {
         const orderRes = await fetch('https://api.freeapi.app/api/v1/ecommerce/orders');
         const orderData = await orderRes.json();
 
-        
         setProductsCount(Array.isArray(prodData?.data) ? prodData.data.length : 0);
-
-        
         setOrdersCount(Array.isArray(orderData?.data) ? orderData.data.length : 0);
 
-        
         const revenue = Array.isArray(orderData?.data)
-          ? orderData.data.reduce((sum: number, order: any) => sum + (order.total || 0), 0)
+          ? orderData.data.reduce((sum: number, order: Order) => sum + order.total, 0)
           : 0;
 
         setTotalRevenue(revenue);

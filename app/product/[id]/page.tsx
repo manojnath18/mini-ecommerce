@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { notFound, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { Star, ShoppingCart, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -102,7 +102,7 @@ export default function ProductPage() {
       <div className="flex justify-center items-center min-h-screen">
         <div className="text-center space-y-4">
           <h2 className="text-2xl font-bold text-gray-800">Product Not Found</h2>
-          <p className="text-gray-600">The product you're looking for doesn't exist.</p>
+          <p className="text-gray-600">The product you are looking for does not exist.</p>
         </div>
       </div>
     );
