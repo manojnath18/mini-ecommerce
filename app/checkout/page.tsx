@@ -30,28 +30,22 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Prepare order data
     const newOrder = {
-      id: Date.now(), // unique id
+      id: Date.now(),
       customer: form,
       items: cartItems,
       total: getTotalPrice(),
       date: new Date().toISOString(),
     };
 
-    // Get existing orders from localStorage
     const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
 
-    // Append new order
     existingOrders.push(newOrder);
 
-    // Save updated orders
     localStorage.setItem('orders', JSON.stringify(existingOrders));
 
-    // Clear cart after placing order
     clearCart();
 
-    // Redirect to success page
     router.push('/success');
   };
 

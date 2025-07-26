@@ -33,13 +33,13 @@ const AdminDashboard = () => {
         const orderRes = await fetch('https://api.freeapi.app/api/v1/ecommerce/orders');
         const orderData = await orderRes.json();
 
-        // Check if prodData.data is an array before using length
+        
         setProductsCount(Array.isArray(prodData?.data) ? prodData.data.length : 0);
 
-        // Check if orderData.data is an array before using length
+        
         setOrdersCount(Array.isArray(orderData?.data) ? orderData.data.length : 0);
 
-        // Safely calculate revenue only if orderData.data is an array
+        
         const revenue = Array.isArray(orderData?.data)
           ? orderData.data.reduce((sum: number, order: any) => sum + (order.total || 0), 0)
           : 0;

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';  // <- import Link here
+import Link from 'next/link';
 import { useCart } from '@/context/cart-context';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';

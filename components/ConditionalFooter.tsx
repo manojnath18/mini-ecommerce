@@ -12,10 +12,8 @@ export default function ConditionalFooter() {
     setMounted(true);
   }, []);
 
-  // Render nothing on server and until mounted on client
   if (!mounted) return null;
 
-  // Only render Footer on homepage '/'
   if (pathname === '/') {
     return <Footer />;
   }

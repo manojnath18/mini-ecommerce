@@ -11,7 +11,6 @@ export default function SignInPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(`Signing in with: ${email}`);
-    // TODO: Add real sign-in logic here
   };
 
   return (

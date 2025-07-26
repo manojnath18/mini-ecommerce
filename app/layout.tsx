@@ -1,11 +1,9 @@
-// app/layout.tsx
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
 import Header from "@/components/Header";
-import ConditionalFooter from "@/components/ConditionalFooter"; // Import the new conditional component
+import ConditionalFooter from "@/components/ConditionalFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +29,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <CartProvider>
-          {/* This layout ensures the footer (when visible) is at the bottom */}
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
               {children}
             </main>
             
-            {/* Using the ConditionalFooter component here */}
             <ConditionalFooter />
           </div>
         </CartProvider>

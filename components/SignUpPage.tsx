@@ -1,10 +1,8 @@
-// app/signup/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button'; // Adjust path if needed
+import { Button } from '@/components/ui/button';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState('');
@@ -67,7 +65,6 @@ export default function SignUpPage() {
             />
           </div>
 
-          {/* Added mt-6 here for more top margin */}
           <Button type="submit" className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 mt-6">
             Sign Up
           </Button>
